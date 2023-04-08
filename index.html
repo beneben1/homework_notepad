@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #261926;
+        }
+
+        textarea {
+            height: 350px;
+            width: 200px;
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px grey;
+        }
+
+        button {
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            margin-right: 10px;
+            box-shadow: 2px 2px 5px grey;
+            background-color: #ffffff;
+        }
+
+        button:hover {
+            background-color: #b20909;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="text" cols="10" rows="50"></textarea>
+    <br><h2 style="color: #ffffff;">Dont use @,= or words with more then 4 letters</h2>
+    <button onclick="save()">Save</button>
+    <button onclick="clearText()">Clear</button>
+
+    <script>
+        function save() {
+            const textarea = document.getElementById("text")
+            const text = textarea.value.replace(/[@=]/g, "");
+            const words = text.split(" ").filter(word => word.length <= 4);
+            textarea.value = words.join(" ");
+        }
+        function clearText() {
+            const textarea = document.getElementById("text");
+            textarea.value = "";
+
+        }
+    </script>
+
+
+</body>
+
+</html>
